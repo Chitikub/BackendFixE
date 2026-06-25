@@ -10,6 +10,13 @@ const server = createServer((req, res) => {
         message: "สวัสดีจาก Node.js Server!",
       }),
     );
+  } else if (method === "POST" && url === "/xyz") {
+    res.writeHead(200);
+    res.end(
+      JSON.stringify({
+        message: "สวัสดีจากPost จาก path xyz",
+      }),
+    );
   } else {
     res.writeHead(404);
     res.end(JSON.stringify({ error: "ไม่พบหน้าที่ต้องการ" }));
